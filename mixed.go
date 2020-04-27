@@ -52,14 +52,14 @@ func (thisRef *MixedServer) RunOnExistingListenerAndRouter(listener net.Listener
 		corsSetterHandler := cors.Default().Handler(router)
 		err := http.Serve(listener, corsSetterHandler)
 		if err != nil {
-			logging.Instance().Fatalf("%s, from %s", err.Error(), reflection.GetThisFuncName())
+			logging.Fatalf("%s, from %s", err.Error(), reflection.GetThisFuncName())
 
 			os.Exit(-1)
 		}
 	} else {
 		err := http.Serve(listener, router)
 		if err != nil {
-			logging.Instance().Fatalf("%s, from %s", err.Error(), reflection.GetThisFuncName())
+			logging.Fatalf("%s, from %s", err.Error(), reflection.GetThisFuncName())
 
 			os.Exit(-1)
 		}
